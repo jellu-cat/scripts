@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function run(){
+run (){
     local name=$1
 
     if pidof "$name"; then
