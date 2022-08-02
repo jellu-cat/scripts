@@ -48,7 +48,7 @@ initialize (){
 
 setxkbmap latam &
 
-nitrogen --restore &
+feh --bg-scale pictures/cin.jpg
 
 # Running some essential programs
 run compton
@@ -61,4 +61,5 @@ run copyq
 xmodmap ~/.Xmodmap &
 
 # The status bar is the last thing loaded
-bash ~/.config/polybar/forest/launch.sh
+killall lemonbar
+( ~/scripts/blocks/bar.sh | lemonbar -p -g x22 -F#151515 -B#99FFFFFF -f "Iosevka Nerd Font"-11 -f FontAwesome-11 ) &
