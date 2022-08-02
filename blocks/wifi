@@ -1,0 +1,18 @@
+#!/bin/sh
+
+############################################################
+
+# Script Name     :   Clock
+# Description     :   Date and time
+# Args            :   none
+# Author          :   Jellu Cat
+
+############################################################
+
+CLOCK=$(date "+%a, %H:%M")
+
+############
+# Printing #
+############
+
+echo "$CLOCK"

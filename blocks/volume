@@ -1,0 +1,20 @@
+#!/bin/sh
+
+############################################################
+
+# Script Name     :   Clock
+# Description     :   Date and time
+# Args            :   none
+# Author          :   Jellu Cat
+
+############################################################
+
+MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+
+if [[ $MUTED == "yes" ]]; then
+    # Muted
+    echo [VOL] muted
+else
+    VOL=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}')
+    echo "[VOL] $VOL"
+fi
