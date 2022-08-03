@@ -10,6 +10,9 @@
 
 ############################################################
 
+
+picture="~/pictures/cin.jpg"
+
 #############
 # Functions #
 #############
@@ -48,7 +51,7 @@ initialize (){
 
 setxkbmap latam &
 
-feh --bg-scale pictures/cin.jpg
+feh --bg-fill $picture
 
 # Running some essential programs
 run compton
