@@ -64,4 +64,4 @@ xmodmap ~/.Xmodmap &
 # The status bar is the last thing loaded
 killall lemonbar
 # ( echo -e "${PATH}" | lemonbar -p -g x22 -F#151515 -B#99FFFFFF -f "Iosevka Nerd Font"-11 -f FontAwesome-11 ) &
-( bash lemonpie | lemonbar -p -g x22 -F#151515 -B#99FFFFFF -f "Iosevka Nerd Font"-11 -f FontAwesome-11 ) &
+( bash lemonpie | lemonbar -p -g x22+0+0 -F#151515 -B#F2F2E9 -f "Iosevka Nerd Font"-11 -f FontAwesome-11 ) &
