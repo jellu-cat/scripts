@@ -1,0 +1,15 @@
+#!/bin/bash
+
+WID=$(xdotool search --name $1 | tail -1 )
+WSTATE=$(xwininfo -id $WID | grep 'Map State' | awk '{printf $3}' )
+
+echo $WSTATE
+
+if [[ $WSTATE = 'IsViewable' ]]; then
+    xdotool windowunmap --sync $WID
+elif [[ $WSTATE = 'IsUnMapped' ]]; then
+    xdotool windowmap --sync $WID
+    xdotool windowraise $WID
+fi
+
+echo $WSTATE
