@@ -1,0 +1,21 @@
+#!/bin/bash
+
+CURRENT=$(setxkbmap -query | grep 'variant' | awk '{print $2}')
+
+OPTS='caps:ctrl_modifier'
+
+toggle() {
+    setxkbmap -layout $LAYOUT -option $OPTS \
+                -variant $VARIANT 1> /dev/null
+    xcape -e '#66=Escape'
+}
+
+if [[ $CURRENT = 'dvorak' ]]; then
+    LAYOUT='latam'
+    VARIANT=''
+    toggle
+elif [[ $CURRENT = '' || $CURRENT = 'qwerty' ]]; then
+    LAYOUT='us'
+    VARIANT='dvorak'
+    toggle
+fi
