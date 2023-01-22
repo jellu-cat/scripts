@@ -51,15 +51,12 @@ initialize (){
 
 # Running some essential programs
 run compton
-run redshift
+initialize redshift
 initialize sxhkd
-run copyq
+initialize copyq
 
-killall lemonbar
-( bash lemonpie | lemonbar -p -g 1366x22+0+0 -F#151515 -B#F2F2E9 -f "Iosevka Nerd Font"-12 -f FontAwesome-11 ) &
-stalonetray &
+# lemonpie
+initialize polybar
+initialize stalonetray &
 
-setxkbmap latam &
-xmodmap ~/.Xmodmap &
-
-# The status bar is the last thing loaded
+emacs --daemon
