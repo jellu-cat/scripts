@@ -14,6 +14,8 @@
 # Functions #
 #############
 
+wm=$(wmctrl -m | awk 'NR == 1 {print $2}')
+
 # Runs a program only if it isn't running
 run (){
     local name=$1
@@ -36,13 +38,16 @@ initialize (){
         echo "$name killed"
     fi
 
-    if [ "$name" = "sxhkd" ]; then
-        sxhkd -c ~/.config/sxhkd/sxhkdrc &
+    `$name` &
+    echo "Running $name"
+}
+
+start_keybindings(){
+    killall sxhkd
+    sxhkd -c ~/.config/sxhkd/sxhkdrc &
+
+    if [ $wm = "bspwm" ]; then
         sxhkd -c ~/.config/sxhkd/bsphkd &
-        echo "Running $name"
-    else
-       `$name` &
-        echo "Running $name"
     fi
 }
 
@@ -52,11 +57,11 @@ initialize (){
 # Running some essential programs
 run compton
 initialize redshift
-initialize sxhkd
+start_keybindings
 initialize copyq
+initialize nm-applet
 
-# lemonpie
+# bar-related
 initialize polybar
 initialize stalonetray &
-
-emacs --daemon
+toggle-window stalonetray
