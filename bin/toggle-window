@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 WID=$(xdotool search --name $1 | tail -1 )
 WSTATE=$(xwininfo -id $WID | grep 'Map State' | awk '{printf $3}' )
