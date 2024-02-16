@@ -1,0 +1,5 @@
+#!/bin/sh
+
+VOLUME=$(pamixer --get-volume-human)
+
+echo "[VOL] ${VOLUME}"
